@@ -239,77 +239,29 @@
             { id: 'orange', name: 'Tim Oranye', bg: 'bg-orange-500', border: 'border-orange-500', text: 'text-orange-700' }
         ];
 
-        // --- DEFAULT QUESTIONS ---
-        // NOTE: Setiap soal memiliki 'targetBox' (opsional). Jika kosong/null, akan masuk urutan 1, 2, 3...
-        // Kita inisialisasi default 1-16 berurutan.
+        // --- UPDATED FINAL QUESTIONS ---
         const DEFAULT_QUESTIONS = [
-            // 5 DETIK - TEORI (8 Soal)
+            // 5 DETIK - TEORI
             { type: 'teori', text: "Sebutkan salah satu metode yang dapat kita gunakan dalam mencatat piutang yang tak dapat ditagih..", answer: "Metode cadangan (Allowance Method) / Direct Write-off", targetBox: 1 },
             { type: 'teori', text: "Dalam perhitungan penyusutan metode saldo menurun, penyusutan terbesar terjadi pada tahun ke berapa?", answer: "Pertama", targetBox: 2 },
-            { type: 'teori', text: "Jurnal untuk mencatat transaksi-transaksi yang sering terjadi dan berulang dalam satu periode agar efisien?", answer: "Jurnal khusus/pembantu", targetBox: 3 },
+            { type: 'teori', text: "Jika kita ingin mencatat transaksi-transaksi yang sering terjadi dan berulang dalam satu periode perusahaan dagang, agar pencatatan menjadi lebih efisien dan rapi kita dapat menggunakan jurnal apa?", answer: "Jurnal khusus/pembantu", targetBox: 3 },
             { type: 'teori', text: "Metode arus kas yang menggunakan laporan laba rugi sebagai titik awal adalah metode...", answer: "Metode tidak langsung (Indirect Method)", targetBox: 4 },
             { type: 'teori', text: "Level 1 dalam Conceptual Framework menjelaskan tentang...", answer: "Tujuan laporan keuangan", targetBox: 5 },
-            { type: 'teori', text: "Jika harga beli naik, metode persediaan apa yang menghasilkan laba kotor tertinggi (sistem periodik)?", answer: "FIFO", targetBox: 6 },
+            { type: 'teori', text: "Jika harga pembelian barang dagang mengalami kenaikan dari waktu ke waktu, metode penilaian persediaan apa yang akan menghasilkan laba kotor tertinggi dalam sistem periodik?", answer: "FIFO", targetBox: 6 },
             { type: 'teori', text: "Sebutkan 2 jenis akun kontra!", answer: "Akumulasi Penyusutan, Cadangan Kerugian Piutang", targetBox: 7 },
             { type: 'teori', text: "Rahasia resep minuman coca-cola merupakan contoh dari jenis aset apa", answer: "Aset tidak berwujud (Intangible Asset)", targetBox: 8 },
-            
-            // 10 DETIK - JURNAL (4 Soal)
-            { type: 'jurnal', text: "PT Sejahtera memiliki saldo Piutang Usaha sebesar Rp120.000.000 pada
-akhir tahun 2024. Berdasarkan pengalaman tahun-tahun sebelumnya, piutang tak
-tertagih diperkirakan sebesar 4% dari total piutang. Saldo akun Cadangan Kerugian
-Piutang sebelum penyesuaian adalah Rp1.500.000. Buat jurnal penyesuaian
-menggunakan metode cadangan (allowance method)!", answer: "Db. Beban Kerugian Piutang 3.3jt, Kr. Cadangan 3.3jt", targetBox: 9 },
-            { type: 'jurnal', text: "PT. Hot and Cold memiliki data transaksi sebagai berikut:
-Saldo awal: 150 unit @Rp 20.000
-Pembelian 5 Jan: 200 unit @Rp 22.000
-Pembelian 20 Jan: 100 unit @Rp 24.000
-Penjualan 25 Jan: 300 unit @Rp 23.000 secara tunai
-Perusahaan melakukan pencatatan secara perpetual
-Buatlah jurnal pada tanggal 25 Januari!
-", answer: "Db. Kas 6.9jt, Kr. Penjualan 6.9jt; Db. HPP 6.3jt, Kr. Persediaan 6.3jt", targetBox: 10 },
-            { type: 'jurnal', text: "PT Sinar Jaya menjual barang dagangan secara kredit senilai
-Rp13.000.000 kepada Toko Abadi pada tanggal 1 Februari 2024. Pada akhir tahun
-2024, perusahaan memperkirakan bahwa 6% dari piutang tersebut tidak akan tertagih.
-Perusahaan menggunakan metode cadangan kerugian piutang (Allowance Method).
-Buatlah jurnal untuk mencatat estimasi piutang tak tertagih tersebut
-", answer: "Db. Beban Kerugian Piutang 780rb, Kr. Cadangan 780rb", targetBox: 11 },
-            { type: 'jurnal', text: "Pada tanggal 25 April 2025, perusahaan mencatat total beban gaji
-sebesar Rp6.050.000. Perusahaan membayar tunai hanya Rp5.400.000. Buatlah jurnal
-umum untuk mencatat transaksi tersebut!
-", answer: "Db. Beban Gaji 6.050jt, Kr. Kas 5.4jt, Kr. Utang Gaji 650rb", targetBox: 12 },
-            
-            // 15 DETIK - HITUNGAN (4 Soal)
-            { type: 'hitungan', text: "PT. Hot and Cold transaksi sebagai berikut:
-Persediaan awal: 150 unit @Rp 20.000
-Pembelian 5 Jan: 200 unit @Rp 22.000
-Pembelian 20 Jan: 100 unit @Rp 24.000
-Penjualan 25 Jan: 300 unit
-perusahaan melakukan pencatatan secara perpetual
-Hitunglah nilai persediaan akhir PT. Hot and Cold dengan menggunakan metode
-FIFO!
-", answer: "Rp3.500.000", targetBox: 13 },
-            { type: 'hitungan', text: "Pak Darsono membeli mesin print Seharga Rp40.000.000 dengan nilai
-residu Rp7.000.000 dengan kapasitas total produksi 50.000 unit
-Jika pada tahun pertama mesin print memproduksi 7.000 unit, berapa nilai buku mesin
-print pada awal tahun kedua?", answer: "Rp35.380.000", targetBox: 14 },
-            { type: 'hitungan', text: "PT AFC IMAKSI menjual barang dagangan dan menggunakan metode
-FIFO untuk penilaian persediaan. Berikut adalah data transaksi selama bulan Januari
-2025:
-Persediaan Awal (1 Januari 2025):
-100 unit @ Rp50.000
-Pembelian:
-5 Januari: 200 unit @ Rp55.000
-20 Januari: 150 unit @ Rp60.000
-Penjualan:
-25 Januari: 300 unit terjual
-Hitung Harga Pokok Penjualan (HPP) untuk penjualan 25 Januari menggunakan
-metode FIFO", answer: "Rp16.000.000", targetBox: 15 },
-            { type: 'hitungan', text: "Pada tanggal 1 Maret 2025, perusahaan membeli persediaan senilai
-Rp12.000.000 dengan syarat pembayaran 2/10, n/30. Perusahaan melunasi utangnya
-pada tanggal 8 Maret 2025. Pada tanggal 9, perusahaan melakukan request retur pada
-pihak penjual sebesar Rp3.000.000 karena terdapat kondisi barang yang cacat.
-Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
-", answer: "Rp11.760.000", targetBox: 16 }
+
+            // 10 DETIK - JURNAL
+            { type: 'jurnal', text: "PT Sejahtera memiliki saldo Piutang Usaha sebesar Rp120.000.000 pada akhir tahun 2024. Berdasarkan pengalaman tahun-tahun sebelumnya, piutang tak tertagih diperkirakan sebesar 4% dari total piutang. Saldo akun Cadangan Kerugian Piutang sebelum penyesuaian adalah Rp1.500.000. Buat jurnal penyesuaian menggunakan metode cadangan (allowance method)!", answer: "Beban Kerugian Piutang (D) 3.300.000, Cadangan Kerugian Piutang (K) 3.300.000", targetBox: 9 },
+            { type: 'jurnal', text: "PT. Hot and Cold memiliki data transaksi sebagai berikut:\n\nSaldo awal: 150 unit @Rp 20.000\nPembelian 5 Jan: 200 unit @Rp 22.000\nPembelian 20 Jan: 100 unit @Rp 24.000\nPenjualan 25 Jan: 300 unit @Rp 23.000 secara tunai\n\nPerusahaan melakukan pencatatan secara perpetual. Buatlah jurnal pada tanggal 25 Januari!", answer: "Kas (D) 6.900.000, Penjualan (K) 6.900.000\n\nHarga Pokok Penjualan (D) 6.300.000, Persediaan Barang Dagang (K) 6.300.000", targetBox: 10 },
+            { type: 'jurnal', text: "PT Sinar Jaya menjual barang dagangan secara kredit senilai Rp13.000.000 kepada Toko Abadi pada tanggal 1 Februari 2024. Pada akhir tahun 2024, perusahaan memperkirakan bahwa 6% dari piutang tersebut tidak akan tertagih. Perusahaan menggunakan metode cadangan kerugian piutang (Allowance Method). Buatlah jurnal untuk mencatat estimasi piutang tak tertagih tersebut!", answer: "Beban Kerugian Piutang (D) 780.000, Cadangan Kerugian Piutang (K) 780.000", targetBox: 11 },
+            { type: 'jurnal', text: "Pada tanggal 25 April 2025, perusahaan mencatat total beban gaji sebesar Rp6.050.000. Perusahaan membayar tunai hanya Rp5.400.000. Buatlah jurnal umum untuk mencatat transaksi tersebut!", answer: "Beban Gaji (D) 6.050.000, Kas (K) 5.400.000, Utang Gaji (K) 650.000", targetBox: 12 },
+
+            // 15 DETIK - HITUNGAN
+            { type: 'hitungan', text: "PT. Hot and Cold transaksi sebagai berikut:\n\nPersediaan awal: 150 unit @Rp 20.000\nPembelian 5 Jan: 200 unit @Rp 22.000\nPembelian 20 Jan: 100 unit @Rp 24.000\nPenjualan 25 Jan: 300 unit\n\nPerusahaan melakukan pencatatan secara perpetual. Hitunglah nilai persediaan akhir PT. Hot and Cold dengan menggunakan metode FIFO!", answer: "Rp3.500.000", targetBox: 13 },
+            { type: 'hitungan', text: "Pak Darsono membeli mesin print Seharga Rp40.000.000 dengan nilai residu Rp7.000.000 dengan kapasitas total produksi 50.000 unit.\n\nJika pada tahun pertama mesin print memproduksi 7.000 unit, berapa nilai buku mesin print pada awal tahun kedua?", answer: "Rp35.380.000", targetBox: 14 },
+            { type: 'hitungan', text: "PT AFC IMAKSI menjual barang dagangan dan menggunakan metode FIFO untuk penilaian persediaan. Berikut adalah data transaksi selama bulan Januari 2025:\n\nPersediaan Awal (1 Januari 2025): 100 unit @ Rp50.000\nPembelian 5 Januari: 200 unit @ Rp55.000\nPembelian 20 Januari: 150 unit @ Rp60.000\nPenjualan 25 Januari: 300 unit terjual\n\nHitung Harga Pokok Penjualan (HPP) untuk penjualan 25 Januari menggunakan metode FIFO.", answer: "Rp16.000.000", targetBox: 15 },
+            { type: 'hitungan', text: "Pada tanggal 1 Maret 2025, perusahaan membeli persediaan senilai Rp12.000.000 dengan syarat pembayaran 2/10, n/30. Perusahaan melunasi utangnya pada tanggal 8 Maret 2025. Pada tanggal 9, perusahaan melakukan request retur pada pihak penjual sebesar Rp3.000.000 karena terdapat kondisi barang yang cacat. Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!", answer: "Rp11.760.000", targetBox: 16 }
         ];
 
         const PATTERNS = [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];
@@ -327,7 +279,7 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
             state: 'setup', teams: [], grid: [], turn: 0, timer: 1800, activeQ: null, timerId: null, winningIdx: [], justWonIdx: null, questions: [], patterns: [],
 
             openQuestionEditor: function() {
-                this.questions = JSON.parse(localStorage.getItem('puzzle_questions')) || JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
+                this.questions = JSON.parse(localStorage.getItem('puzzle_questions_final')) || JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
                 const modal = document.getElementById('editorModal');
                 const content = document.getElementById('editorContent');
                 content.innerHTML = '';
@@ -368,29 +320,19 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
             
             // NEW: Auto Shuffle Function inside Editor
             autoShufflePositions: function() {
-                // Create array 1-16
                 let positions = Array.from({length: 16}, (_, i) => i + 1);
-                // Shuffle it
                 positions.sort(() => Math.random() - 0.5);
+                this.questions.forEach((q, i) => { q.targetBox = positions[i]; });
                 
-                // Assign to questions
-                this.questions.forEach((q, i) => {
-                    q.targetBox = positions[i];
-                });
-                
-                // Refresh UI
                 const content = document.getElementById('editorContent');
                 const inputs = content.querySelectorAll('input[type="number"]');
-                inputs.forEach((input, i) => {
-                    input.value = this.questions[i].targetBox;
-                });
+                inputs.forEach((input, i) => { input.value = this.questions[i].targetBox; });
                 
-                alert("Posisi soal telah diacak! Silakan periksa dan sesuaikan jika perlu.");
+                alert("Posisi soal telah diacak!");
             },
 
             saveQuestions: function() {
-                // Validate positions (must be 1-16 and unique ideally, but we'll just trust user or overwrite)
-                localStorage.setItem('puzzle_questions', JSON.stringify(this.questions));
+                localStorage.setItem('puzzle_questions_final', JSON.stringify(this.questions));
                 document.getElementById('editorModal').classList.add('hidden');
                 alert("Disimpan!");
             },
@@ -398,7 +340,7 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
             resetQuestionsToDefault: function() {
                 if(confirm("Reset ke default (sesuai urutan PDF)?")) {
                     this.questions = JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
-                    localStorage.removeItem('puzzle_questions');
+                    localStorage.removeItem('puzzle_questions_final');
                     this.openQuestionEditor();
                 }
             },
@@ -407,35 +349,24 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
                 const names = ['yellow','green','blue','orange'].map(c => document.getElementById(`name-${c}`).value.trim() || `Tim ${c}`);
                 this.teams = JSON.parse(JSON.stringify(TEAMS_CONFIG)).map((t, i) => ({...t, name: names[i], score: 100}));
 
-                const stored = localStorage.getItem('puzzle_questions');
+                const stored = localStorage.getItem('puzzle_questions_final');
                 let pool = stored ? JSON.parse(stored) : JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
                 
                 // --- MANUAL MAPPING LOGIC ---
-                // We create an empty grid of 16 slots
                 let finalGrid = new Array(16).fill(null);
                 
-                // Fill grid based on targetBox
                 pool.forEach(q => {
-                    // targetBox is 1-based, convert to 0-based index
                     let pos = (q.targetBox || 1) - 1; 
-                    // Safety check: wrap around if out of bounds (shouldn't happen if input is restricted)
                     pos = Math.max(0, Math.min(15, pos));
-                    
-                    // If slot occupied, find next empty slot (simple collision resolution)
-                    while(finalGrid[pos] !== null) {
-                        pos = (pos + 1) % 16;
-                    }
-                    
+                    while(finalGrid[pos] !== null) { pos = (pos + 1) % 16; }
                     finalGrid[pos] = { ...q, id: pos, owner: null };
                 });
 
-                // In case some slots are still null (if pool < 16), fill with placeholder (shouldn't happen with default set)
                  for(let i=0; i<16; i++) {
                     if(!finalGrid[i]) finalGrid[i] = { type: 'teori', text: 'Cadangan', answer: '-', id: i, owner: null };
                  }
 
                 this.grid = finalGrid;
-                // -----------------------------
 
                 this.turn = 0; this.timer = 1800; this.winningIdx = []; this.justWonIdx = null; this.patterns = []; this.state = 'playing';
 
@@ -455,6 +386,7 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
                 document.getElementById('setupScreen').classList.remove('hidden');
                 document.getElementById('transitionOverlay').classList.add('hidden');
                 document.getElementById('flipCard').classList.remove('flip-active');
+                document.getElementById('bonusOverlay').classList.add('hidden');
             },
 
             startTimer: function() {
@@ -619,5 +551,4 @@ Hitung berapa jumlah uang yang dibayarkan oleh perusahaan pada 8 Maret!
         };
     </script>
 </body>
-
 </html>
