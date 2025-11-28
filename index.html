@@ -29,8 +29,8 @@
 
         /* FLIP CARD CSS - DIPERBESAR */
         #flipCard {
-            width: 900px;
-            height: 600px; 
+            width: 1000px;
+            height: 650px; 
             perspective: 1000px; 
             transition: opacity 0.3s ease-in-out;
             max-width: 95vw; 
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <!-- 1.5 QUESTION EDITOR MODAL (FIXED LAYOUT FOR MOBILE) -->
+    <!-- 1.5 QUESTION EDITOR MODAL -->
     <div id="editorModal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-gray-900/80 backdrop-blur-sm p-2 md:p-4">
         <div class="bg-white w-full max-w-4xl h-[90vh] md:h-[85vh] rounded-xl shadow-2xl border border-gray-200 flex flex-col animate-pop relative">
             <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50 rounded-t-xl shrink-0">
@@ -125,7 +125,6 @@
     <div id="gameInterface" class="hidden flex-col h-full w-full">
         <div class="h-14 md:h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 shadow-sm z-30 relative">
             <div class="flex items-center gap-3">
-                <!-- LOGO IN HEADER -->
                 <div class="w-10 h-10 rounded-lg overflow-hidden shadow-sm border border-gray-100 hidden md:block bg-white">
                     <img src="logo.jpg" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'">
                 </div>
@@ -239,25 +238,21 @@
             { id: 'orange', name: 'Tim Oranye', bg: 'bg-orange-500', border: 'border-orange-500', text: 'text-orange-700' }
         ];
 
-        // --- UPDATED FINAL QUESTIONS ---
         const DEFAULT_QUESTIONS = [
-            // 5 DETIK - TEORI
             { type: 'teori', text: "Sebutkan salah satu metode yang dapat kita gunakan dalam mencatat piutang yang tak dapat ditagih..", answer: "Metode cadangan (Allowance Method) / Direct Write-off", targetBox: 1 },
             { type: 'teori', text: "Dalam perhitungan penyusutan metode saldo menurun, penyusutan terbesar terjadi pada tahun ke berapa?", answer: "Pertama", targetBox: 2 },
-            { type: 'teori', text: "Jika kita ingin mencatat transaksi-transaksi yang sering terjadi dan berulang dalam satu periode perusahaan dagang, agar pencatatan menjadi lebih efisien dan rapi kita dapat menggunakan jurnal apa?", answer: "Jurnal khusus/pembantu", targetBox: 3 },
+            { type: 'teori', text: "Jurnal untuk mencatat transaksi-transaksi yang sering terjadi dan berulang dalam satu periode perusahaan dagang, agar pencatatan menjadi lebih efisien dan rapi kita dapat menggunakan jurnal apa?", answer: "Jurnal khusus/pembantu", targetBox: 3 },
             { type: 'teori', text: "Metode arus kas yang menggunakan laporan laba rugi sebagai titik awal adalah metode...", answer: "Metode tidak langsung (Indirect Method)", targetBox: 4 },
             { type: 'teori', text: "Level 1 dalam Conceptual Framework menjelaskan tentang...", answer: "Tujuan laporan keuangan", targetBox: 5 },
             { type: 'teori', text: "Jika harga pembelian barang dagang mengalami kenaikan dari waktu ke waktu, metode penilaian persediaan apa yang akan menghasilkan laba kotor tertinggi dalam sistem periodik?", answer: "FIFO", targetBox: 6 },
             { type: 'teori', text: "Sebutkan 2 jenis akun kontra!", answer: "Akumulasi Penyusutan, Cadangan Kerugian Piutang", targetBox: 7 },
             { type: 'teori', text: "Rahasia resep minuman coca-cola merupakan contoh dari jenis aset apa", answer: "Aset tidak berwujud (Intangible Asset)", targetBox: 8 },
 
-            // 10 DETIK - JURNAL
             { type: 'jurnal', text: "PT Sejahtera memiliki saldo Piutang Usaha sebesar Rp120.000.000 pada akhir tahun 2024. Berdasarkan pengalaman tahun-tahun sebelumnya, piutang tak tertagih diperkirakan sebesar 4% dari total piutang. Saldo akun Cadangan Kerugian Piutang sebelum penyesuaian adalah Rp1.500.000. Buat jurnal penyesuaian menggunakan metode cadangan (allowance method)!", answer: "Beban Kerugian Piutang (D) 3.300.000, Cadangan Kerugian Piutang (K) 3.300.000", targetBox: 9 },
             { type: 'jurnal', text: "PT. Hot and Cold memiliki data transaksi sebagai berikut:\n\nSaldo awal: 150 unit @Rp 20.000\nPembelian 5 Jan: 200 unit @Rp 22.000\nPembelian 20 Jan: 100 unit @Rp 24.000\nPenjualan 25 Jan: 300 unit @Rp 23.000 secara tunai\n\nPerusahaan melakukan pencatatan secara perpetual. Buatlah jurnal pada tanggal 25 Januari!", answer: "Kas (D) 6.900.000, Penjualan (K) 6.900.000\n\nHarga Pokok Penjualan (D) 6.300.000, Persediaan Barang Dagang (K) 6.300.000", targetBox: 10 },
             { type: 'jurnal', text: "PT Sinar Jaya menjual barang dagangan secara kredit senilai Rp13.000.000 kepada Toko Abadi pada tanggal 1 Februari 2024. Pada akhir tahun 2024, perusahaan memperkirakan bahwa 6% dari piutang tersebut tidak akan tertagih. Perusahaan menggunakan metode cadangan kerugian piutang (Allowance Method). Buatlah jurnal untuk mencatat estimasi piutang tak tertagih tersebut!", answer: "Beban Kerugian Piutang (D) 780.000, Cadangan Kerugian Piutang (K) 780.000", targetBox: 11 },
             { type: 'jurnal', text: "Pada tanggal 25 April 2025, perusahaan mencatat total beban gaji sebesar Rp6.050.000. Perusahaan membayar tunai hanya Rp5.400.000. Buatlah jurnal umum untuk mencatat transaksi tersebut!", answer: "Beban Gaji (D) 6.050.000, Kas (K) 5.400.000, Utang Gaji (K) 650.000", targetBox: 12 },
 
-            // 15 DETIK - HITUNGAN
             { type: 'hitungan', text: "PT. Hot and Cold transaksi sebagai berikut:\n\nPersediaan awal: 150 unit @Rp 20.000\nPembelian 5 Jan: 200 unit @Rp 22.000\nPembelian 20 Jan: 100 unit @Rp 24.000\nPenjualan 25 Jan: 300 unit\n\nPerusahaan melakukan pencatatan secara perpetual. Hitunglah nilai persediaan akhir PT. Hot and Cold dengan menggunakan metode FIFO!", answer: "Rp3.500.000", targetBox: 13 },
             { type: 'hitungan', text: "Pak Darsono membeli mesin print Seharga Rp40.000.000 dengan nilai residu Rp7.000.000 dengan kapasitas total produksi 50.000 unit.\n\nJika pada tahun pertama mesin print memproduksi 7.000 unit, berapa nilai buku mesin print pada awal tahun kedua?", answer: "Rp35.380.000", targetBox: 14 },
             { type: 'hitungan', text: "PT AFC IMAKSI menjual barang dagangan dan menggunakan metode FIFO untuk penilaian persediaan. Berikut adalah data transaksi selama bulan Januari 2025:\n\nPersediaan Awal (1 Januari 2025): 100 unit @ Rp50.000\nPembelian 5 Januari: 200 unit @ Rp55.000\nPembelian 20 Januari: 150 unit @ Rp60.000\nPenjualan 25 Januari: 300 unit terjual\n\nHitung Harga Pokok Penjualan (HPP) untuk penjualan 25 Januari menggunakan metode FIFO.", answer: "Rp16.000.000", targetBox: 15 },
@@ -266,7 +261,6 @@
 
         const PATTERNS = [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];
 
-        // Fungsi Play Sound yang AMAN
         const playSfx = (id) => {
             const audio = document.getElementById(id);
             if(audio) {
@@ -284,7 +278,6 @@
                 const content = document.getElementById('editorContent');
                 content.innerHTML = '';
 
-                // Sort by targetBox just for display clarity
                 this.questions.sort((a,b) => (a.targetBox || 0) - (b.targetBox || 0));
 
                 this.questions.forEach((q, i) => {
@@ -318,7 +311,6 @@
 
             updateQuestion: function(i, f, v) { this.questions[i][f] = v; },
             
-            // NEW: Auto Shuffle Function inside Editor
             autoShufflePositions: function() {
                 let positions = Array.from({length: 16}, (_, i) => i + 1);
                 positions.sort(() => Math.random() - 0.5);
@@ -352,7 +344,6 @@
                 const stored = localStorage.getItem('puzzle_questions_final');
                 let pool = stored ? JSON.parse(stored) : JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
                 
-                // --- MANUAL MAPPING LOGIC ---
                 let finalGrid = new Array(16).fill(null);
                 
                 pool.forEach(q => {
@@ -527,8 +518,8 @@
                     const owner = this.teams.find(t => t.id === b.owner);
                     const anim = (i === this.justWonIdx) ? 'animate-flip-win' : '';
                     
-                    // UPDATED: Kotak abu-abu, angka hitam pekat
-                    let content = `<span class="text-2xl md:text-3xl font-mono font-black text-gray-900 opacity-80">${i+1}</span>`;
+                    // UPDATED: Grey box matching user reference (bg-gray-300) with Black text
+                    let content = `<span class="text-2xl md:text-3xl font-mono font-black text-gray-800 opacity-90">${i+1}</span>`;
                     let cls = `grid-box relative rounded-xl flex items-center justify-center font-bold h-full w-full outline-none transition-all ${anim} `;
                     
                     if(owner) {
@@ -536,8 +527,8 @@
                         cls += `${owner.bg} shadow-md border-b-4 border-black/10`;
                         if(this.winningIdx.includes(i)) cls += ` ring-4 ring-yellow-400 z-10`;
                     } else {
-                        // Grey background
-                        cls += `bg-gray-100 border border-gray-300 hover:bg-gray-200 text-gray-900 shadow-sm`;
+                        // Use bg-gray-300 to match user request for light grey box
+                        cls += `bg-gray-300 border border-gray-400 hover:bg-gray-400 text-gray-800 shadow-sm`;
                     }
                     
                     const btn = document.createElement('button');
